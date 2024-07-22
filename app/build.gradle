@@ -1,7 +1,11 @@
-plugins {
+/*plugins {
     id('com.android.application') version('8.3.1')
     id('org.jetbrains.kotlin.android') version('1.9.0')
-}
+}*/
+
+apply plugin: 'com.android.application'
+apply plugin: 'org.jetbrains.kotlin.android'
+//apply from: "../ktlint.gradle"
 
 android {
     namespace 'my.ym.cicdappcenter1'
@@ -65,7 +69,7 @@ dependencies {
     implementation 'androidx.compose.ui:ui-tooling-preview'
     implementation 'androidx.compose.material3:material3'
 
-    androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
+    //androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
 
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
