@@ -1,1 +1,5 @@
-[![Build status](https://build.appcenter.ms/v0.1/apps/aa8ca0c9-0c4f-4ec9-9509-3a112aeaf9e5/branches/dev/badge)](https://appcenter.ms)
+Dev -> [![Build status](https://build.appcenter.ms/v0.1/apps/293776f5-46b3-4a6a-b968-bdbef76d64f7/branches/dev/badge)](https://appcenter.ms)
+
+Test -> 
+
+Master -> [![Build status](https://build.appcenter.ms/v0.1/apps/293776f5-46b3-4a6a-b968-bdbef76d64f7/branches/master/badge)](https://appcenter.ms)
