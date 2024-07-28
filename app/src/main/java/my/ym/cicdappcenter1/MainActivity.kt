@@ -48,7 +48,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     Column {
-                        Greeting("Android")
+                        Greeting("Android DJASDJALD")
 
                         Spacer(modifier = Modifier.height(24.dp))
 
