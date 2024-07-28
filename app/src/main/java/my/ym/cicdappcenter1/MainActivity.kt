@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
 
         AppCenter.start(
             application,
-            "b46a6071-be1b-4105-bc0a-381759599486",
+            "1b3e21e4-51fa-47e0-b671-fa7242b16b16",
             Analytics::class.java,
             Crashes::class.java,
         )
