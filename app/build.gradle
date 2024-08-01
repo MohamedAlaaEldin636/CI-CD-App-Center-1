@@ -71,6 +71,14 @@ dependencies {
 
     //androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
 
+    //testImplementation("org.jetbrains.kotlin:kotlin-reflect:1.8.21")
+
+    // Test rules and transitive dependencies:
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.0.0")
+    androidTestImplementation("com.microsoft.appcenter:espresso-test-extension:1.5")
+    // Needed for createComposeRule(), but not for createAndroidComposeRule<YourActivity>():
+    //debugImplementation("androidx.compose.ui:ui-test-manifest:$compose_version")
+
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
 
@@ -78,4 +86,16 @@ dependencies {
 
     implementation 'androidx.test.ext:junit:1.2.1'
     implementation 'androidx.test.espresso:espresso-core:3.6.1'
+}
+
+tasks.register("printHellowWorldSimpleTask") {
+    doLast {
+        println("Hellow World! from Simple Task")
+    }
+}
+
+tasks.withType(Test) {
+    testLogging {
+        showStandardStreams = true
+    }
 }

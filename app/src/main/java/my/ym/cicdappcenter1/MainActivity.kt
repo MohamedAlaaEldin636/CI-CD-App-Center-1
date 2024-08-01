@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -17,7 +19,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
@@ -64,6 +68,8 @@ class MainActivity : ComponentActivity() {
                             toast?.show()
                         }
 
+                        var counter by rememberSaveable { mutableStateOf(0) }
+
                         Button(
                             modifier = Modifier.fillMaxWidth(),
                             onClick = {
@@ -80,15 +86,53 @@ class MainActivity : ComponentActivity() {
 
                                 showToast("Clicked el7")
 
+                                counter++
+
                                 //throw RuntimeException("Trial 1")
                                 //Crashes.generateTestCrash()
                             },
                         ) {
-                            Text(text = "Calculate")
+                            Text(text = "Calculate Clicked $counter")
                         }
                     }
                 }
             }
+        }
+    }
+}
+
+@Composable
+fun FakeScreen2() {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        var toast: Toast? by remember { mutableStateOf(null) }
+        val context = LocalContext.current
+        val cancelToast: () -> Unit = {
+            toast?.cancel()
+            toast = null
+        }
+        val showToast: (String) -> Unit = {
+            cancelToast()
+            toast = Toast.makeText(context, it, Toast.LENGTH_SHORT)
+            toast?.show()
+        }
+
+        var counter by rememberSaveable { mutableStateOf(0) }
+
+        Button(
+            onClick = {
+                counter++
+
+                showToast("Clicked el7 & isa.")
+            }
+        ) {
+            Text(
+                modifier = Modifier.clickable { counter++ },
+                text = "Clicked $counter"
+            )
         }
     }
 }
